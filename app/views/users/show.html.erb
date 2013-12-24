@@ -12,7 +12,7 @@
   </aside>
 
   <div class="span8">
-  <%= render 'follow_form' if signed_in? %>
+  <%= render 'shared/follow_form' if signed_in? %>
     <% if @user.entries.any? %>
       <h3>entries (<%= @user.entries.count %>)</h3>
       <ol class="entries">

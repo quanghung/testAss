@@ -25,11 +25,7 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
-  private
 
-    def create_remember_token
-      self.remember_token = User.encrypt(User.new_remember_token)
-    end
     def feed
     # This is preliminary. See "Following users" for the full implementation.
     Entry.where("user_id = ?", id)
@@ -46,5 +42,9 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy!
   end
+  private
 
+    def create_remember_token
+      self.remember_token = User.encrypt(User.new_remember_token)
+    end
 end
