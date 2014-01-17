@@ -45,7 +45,7 @@ class UsersController < ApplicationController
          def user_params
          params.require(:user).permit :name, :password,
          :password_confirmation, :email,
-         user_skills_attributes: [:skill_id, :user_id,user_skill_details_attributes: [:detail_skill_id]]
+         user_skills_attributes: [:skill_id,user_skill_details_attributes: [:detail_skill_id]]
          end
      def correct_user
       @user = User.find(params[:id])

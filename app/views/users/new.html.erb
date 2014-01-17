@@ -16,8 +16,8 @@
     <ul>
       <%= f.fields_for :user_skills do |builder|%>
         
-          <%=builder.check_box :skill_id, {checked: false}, 
-                builder.object.skill.id%>  
+ <%= builder.check_box :skill_id, {checked: false},
+                builder.object.skill.id, nil %> 
           <%=builder.object.skill.name%>
           <ul>
             <%= builder.fields_for :user_skill_details do |builder1|%>

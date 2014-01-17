@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
+
   has_secure_password
  has_many :user_skills
+  has_many :skills, through: :user_skills
+  has_many :skill_details, through: :user_skill_details
   has_many :user_skill_details
   accepts_nested_attributes_for :user_skills,
     reject_if: ->attrs { attrs['skill_id'].blank? } 
@@ -28,3 +31,5 @@ class User < ActiveRecord::Base
       self.remember_token = User.encrypt(User.new_remember_token)
     end
 end
+
+
