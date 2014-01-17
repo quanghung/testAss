@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
+  respond_to :html, :js, :csv
  def index
     @users = User.paginate(page: params[:page])
   end
 
   def show
     @user = User.find(params[:id])
-    @entries = @user.entries.paginate(page: params[:page], :per_page => 4)
+    
   end
+
 
   def new
     @user = User.new
@@ -25,19 +27,7 @@ class UsersController < ApplicationController
 
   def edit
   end
- def following
-    @title = "Following"
-    @user = User.find(params[:id])
-    @users = @user.followed_users.paginate(page: params[:page])
-    render 'show_follow'
-  end
 
-  def followers
-    @title = "Followers"
-    @user = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
-    render 'show_follow'
-  end
  
   private
 

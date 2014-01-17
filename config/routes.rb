@@ -1,14 +1,6 @@
 AppTest::Application.routes.draw do
-  resources :users do
-    member do
-      get :following, :followers
-    end
-  end
+  resources :users 
   resources :sessions,      only: [:new, :create, :destroy]
-  resources :entries,    only: [:create, :destroy]
-  resources :comments,   only: [:create, :destroy]
-  resources :relationships, only: [:create, :destroy]
-
 
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'

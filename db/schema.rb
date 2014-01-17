@@ -11,49 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131224083024) do
+ActiveRecord::Schema.define(version: 20140117021023) do
 
-  create_table "comments", force: true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.integer  "entry_id"
+  create_table "skills", force: true do |t|
+    t.string   "name",       limit: 512, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["entry_id", "user_id", "created_at"], name: "index_comments_on_entry_id_and_user_id_and_created_at"
+  add_index "skills", ["id"], name: "index_skills_on_id", unique: true, using: :btree
 
-  create_table "entries", force: true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "title"
-  end
-
-  add_index "entries", ["user_id", "created_at"], name: "index_entries_on_user_id_and_created_at"
-
-  create_table "relationships", force: true do |t|
-    t.integer  "follower_id"
-    t.integer  "followed_id"
+  create_table "user_skills", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "skill_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
-  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+  add_index "user_skills", ["id"], name: "index_user_skills_on_id", unique: true, using: :btree
+  add_index "user_skills", ["skill_id"], name: "index_user_skills_on_skill_id_and_created_at", using: :btree
+  add_index "user_skills", ["user_id"], name: "index_user_skills_on_user_id_and_created_at", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
+    t.string   "name",            limit: 512, null: false
+    t.string   "email",                       null: false
+    t.string   "password_digest", limit: 256, null: false
+    t.string   "remember_token",  limit: 256
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest"
-    t.string   "remember_token"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["id"], name: "index_users_on_id", unique: true, using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", length: {"remember_token"=>255}, using: :btree
 
 end
