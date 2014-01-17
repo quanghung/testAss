@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140117021023) do
+ActiveRecord::Schema.define(version: 20140117082453) do
+
+  create_table "detail_skills", force: true do |t|
+    t.string   "name",       limit: 512, null: false
+    t.integer  "skill_id",               null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "detail_skills", ["id"], name: "index_detail_skills_on_id", unique: true, using: :btree
+  add_index "detail_skills", ["skill_id"], name: "index_detail_skills_on_skill_id_and_created_at", using: :btree
 
   create_table "skills", force: true do |t|
     t.string   "name",       limit: 512, null: false
@@ -20,6 +30,17 @@ ActiveRecord::Schema.define(version: 20140117021023) do
   end
 
   add_index "skills", ["id"], name: "index_skills_on_id", unique: true, using: :btree
+
+  create_table "user_skill_details", force: true do |t|
+    t.integer  "detail_skill_id", null: false
+    t.integer  "user_skill_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_skill_details", ["detail_skill_id"], name: "index_user_skill_details_on_detail_skill_id_and_created_at", using: :btree
+  add_index "user_skill_details", ["id"], name: "index_user_skill_details_on_id", unique: true, using: :btree
+  add_index "user_skill_details", ["user_skill_id"], name: "index_user_skill_details_on_user_skill_id_and_created_at", using: :btree
 
   create_table "user_skills", force: true do |t|
     t.integer  "user_id",    null: false

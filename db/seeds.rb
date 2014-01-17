@@ -41,3 +41,25 @@ user_skills_list = [
 user_skills_list.each do |user_skill|
   UserSkill.create! user_skill
 end
+
+detail_skills_list = [
+  {name: "Git", skill_id: 1},
+  {name: "RoR", skill_id: 1},
+  {name: "CakePHP", skill_id: 2},
+  {name: "Zend", skill_id: 2},
+  {name: "SpringFramework", skill_id: 3},
+  {name: "Structs1", skill_id: 3},
+]
+
+detail_skills_list.each do |detail_skill|
+  DetailSkill.create! detail_skill
+end
+
+user_skill_details_list = [
+  {user_skill_id: 1,detail_skill_id:1},
+
+]
+
+user_skill_details_list.each do |user_skill_detail|
+  UserSkillDetail.create! user_skill_detail
+end
