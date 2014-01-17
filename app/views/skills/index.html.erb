@@ -5,14 +5,10 @@
   <%    @user_skills.each do |user_skill|%>
    
         <%= user_skill.id %>
-       <% if user_skill.skill.name.nil ? %>
-        <%= user_skill.skill.name %>
+        <%= user_skill.skill.name if  user_skill.skill.present? %>
          <% user_skill.skill.detail_skills.each do |detail_skill|%>
           <%=detail_skill.name %>
           <br/>
-            
-                 <% end %>
-
                 <% end %>
            <% end %>
       

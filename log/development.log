@@ -35149,3 +35149,567 @@ ActionView::Template::Error (/home/framgia-user/Desktop/testAss/app/views/skills
   Rendered /home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
   Rendered /home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
   Rendered /home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.6ms)
+
+
+Started GET "/users/3/skills" for 127.0.0.1 at 2014-01-17 18:43:57 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by SkillsController#index as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'b08a58df5bf485320307794be4180dc1897b4b4e' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from index at /home/framgia-user/Desktop/testAss/app/controllers/skills_controller.rb:6)
+  [1m[35mUserSkill Load (0.2ms)[0m  SELECT `user_skills`.* FROM `user_skills` WHERE `user_skills`.`user_id` = 3
+ERROR: compiling _app_views_skills_index_html_erb___3280204566763861473_70021559392860 RAISED /home/framgia-user/Desktop/testAss/app/views/skills/index.html.erb:9: syntax error, unexpected ';', expecting ':'
+..._buffer.safe_append='        ';@output_buffer.append=( user_...
+...                               ^
+/home/framgia-user/Desktop/testAss/app/views/skills/index.html.erb:20: syntax error, unexpected keyword_ensure, expecting end-of-input
+Function body:           def _app_views_skills_index_html_erb___3280204566763861473_70021559392860(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "skills/index";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.safe_append='
+<h2>skill ';@output_buffer.append=(@user.name);@output_buffer.safe_append='</h2>
+
+
+';      @user_skills.each do |user_skill|
+@output_buffer.safe_append='   
+        ';@output_buffer.append=( user_skill.id );@output_buffer.safe_append='
+';        if user_skill.skill.name.nil ? 
+@output_buffer.safe_append='        ';@output_buffer.append=( user_skill.skill.name );@output_buffer.safe_append='
+';          user_skill.skill.detail_skills.each do |detail_skill|
+@output_buffer.safe_append='          ';@output_buffer.append=(detail_skill.name );@output_buffer.safe_append='
+          <br/>
+            
+';                  end 
+@output_buffer.safe_append='
+';                 end 
+            end 
+@output_buffer.safe_append='      
+';@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_view/template.rb:299:in `module_eval'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_view/template.rb:299:in `compile'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_view/template.rb:248:in `block in compile!'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_view/template.rb:236:in `synchronize'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_view/template.rb:236:in `compile!'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_view/template.rb:142:in `block in render'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/notifications.rb:161:in `instrument'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_view/template.rb:141:in `render'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/notifications.rb:159:in `block in instrument'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/notifications.rb:159:in `instrument'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_view/renderer/renderer.rb:23:in `render'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/abstract_controller/rendering.rb:97:in `render'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal/rendering.rb:16:in `render'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/framgia-user/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.1/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/abstract_controller/base.rb:189:in `process_action'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/callbacks.rb:413:in `_run__3324644282389024794__process_action__callbacks'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/notifications.rb:159:in `block in instrument'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/notifications.rb:159:in `instrument'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.1/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/abstract_controller/base.rb:136:in `process'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/abstract_controller/rendering.rb:44:in `process'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal.rb:195:in `dispatch'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_controller/metal.rb:231:in `block in action'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/journey/router.rb:59:in `each'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/journey/router.rb:59:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/routing/route_set.rb:680:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.1/lib/active_record/query_cache.rb:36:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.1/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.1/lib/active_record/migration.rb:369:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/callbacks.rb:373:in `_run__929584611653786067__call__callbacks'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.1/lib/rails/rack/logger.rb:38:in `call_app'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.1/lib/rails/rack/logger.rb:20:in `block in call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/tagged_logging.rb:25:in `tagged'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/tagged_logging.rb:67:in `tagged'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.1/lib/rails/rack/logger.rb:20:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.1/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/static.rb:64:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.1/lib/rails/engine.rb:511:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.1/lib/rails/application.rb:97:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/home/framgia-user/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+/home/framgia-user/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+/home/framgia-user/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+  Rendered skills/index.html.erb within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 102ms
+
+ActionView::Template::Error (/home/framgia-user/Desktop/testAss/app/views/skills/index.html.erb:9: syntax error, unexpected ';', expecting ':'
+..._buffer.safe_append='        ';@output_buffer.append=( user_...
+...                               ^
+/home/framgia-user/Desktop/testAss/app/views/skills/index.html.erb:20: syntax error, unexpected keyword_ensure, expecting end-of-input):
+     6:    
+     7:         <%= user_skill.id %>
+     8:        <% if user_skill.skill.name.nil ? %>
+     9:         <%= user_skill.skill.name %>
+    10:          <% user_skill.skill.detail_skills.each do |detail_skill|%>
+    11:           <%=detail_skill.name %>
+    12:           <br/>
+  actionpack (4.0.1) lib/action_view/template.rb:299:in `module_eval'
+  actionpack (4.0.1) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.1) lib/action_view/template.rb:248:in `block in compile!'
+  actionpack (4.0.1) lib/action_view/template.rb:236:in `synchronize'
+  actionpack (4.0.1) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.1) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.1) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.1) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.1) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.1) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.1) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.1) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.1) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.1) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.1) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.1) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.1) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.1) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.1) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.1) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/framgia-user/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.1) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.1) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:413:in `_run__3324644282389024794__process_action__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.1) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.1) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.1) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.1) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__929584611653786067__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/framgia-user/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/framgia-user/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/framgia-user/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.3ms)
+
+
+Started GET "/users/3/skills" for 127.0.0.1 at 2014-01-17 18:44:52 +0700
+Processing by SkillsController#index as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'b08a58df5bf485320307794be4180dc1897b4b4e' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from index at /home/framgia-user/Desktop/testAss/app/controllers/skills_controller.rb:6)
+  [1m[36mUserSkill Load (0.2ms)[0m  [1mSELECT `user_skills`.* FROM `user_skills` WHERE `user_skills`.`user_id` = 3[0m
+  [1m[35mSkill Load (0.1ms)[0m  SELECT `skills`.* FROM `skills` WHERE `skills`.`id` = 1 ORDER BY `skills`.`id` ASC LIMIT 1
+  [1m[36mDetailSkill Load (0.3ms)[0m  [1mSELECT `detail_skills`.* FROM `detail_skills` WHERE `detail_skills`.`skill_id` = 1[0m
+  [1m[35mSkill Load (0.3ms)[0m  SELECT `skills`.* FROM `skills` WHERE `skills`.`id` = 0 ORDER BY `skills`.`id` ASC LIMIT 1
+  Rendered skills/index.html.erb within layouts/application (44.2ms)
+Completed 500 Internal Server Error in 50ms
+
+ActionView::Template::Error (undefined method `detail_skills' for nil:NilClass):
+     6:    
+     7:         <%= user_skill.id %>
+     8:         <%= user_skill.skill.name if  user_skill.skill.present? %>
+     9:          <% user_skill.skill.detail_skills.each do |detail_skill|%>
+    10:           <%=detail_skill.name %>
+    11:           <br/>
+    12:                 <% end %>
+  app/views/skills/index.html.erb:9:in `block in _app_views_skills_index_html_erb___3280204566763861473_70021562386120'
+  app/views/skills/index.html.erb:5:in `each'
+  app/views/skills/index.html.erb:5:in `_app_views_skills_index_html_erb___3280204566763861473_70021562386120'
+
+
+  Rendered /home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-01-17 18:45:14 +0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'b08a58df5bf485320307794be4180dc1897b4b4e' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users`
+  Rendered users/index.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 186ms (Views: 183.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/imports.css?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/aaa.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/imports.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-17 18:45:15 +0700
+
+
+Started GET "/users/1/skills" for 127.0.0.1 at 2014-01-17 18:45:16 +0700
+Processing by SkillsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'b08a58df5bf485320307794be4180dc1897b4b4e' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from index at /home/framgia-user/Desktop/testAss/app/controllers/skills_controller.rb:6)
+  [1m[36mUserSkill Load (0.2ms)[0m  [1mSELECT `user_skills`.* FROM `user_skills` WHERE `user_skills`.`user_id` = 1[0m
+  [1m[35mSkill Load (0.2ms)[0m  SELECT `skills`.* FROM `skills` WHERE `skills`.`id` = 1 ORDER BY `skills`.`id` ASC LIMIT 1
+  [1m[36mDetailSkill Load (0.1ms)[0m  [1mSELECT `detail_skills`.* FROM `detail_skills` WHERE `detail_skills`.`skill_id` = 1[0m
+  Rendered skills/index.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 21ms (Views: 16.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/2/skills" for 127.0.0.1 at 2014-01-17 18:45:21 +0700
+Processing by SkillsController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'b08a58df5bf485320307794be4180dc1897b4b4e' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from index at /home/framgia-user/Desktop/testAss/app/controllers/skills_controller.rb:6)
+  [1m[35mUserSkill Load (0.1ms)[0m  SELECT `user_skills`.* FROM `user_skills` WHERE `user_skills`.`user_id` = 2
+  Rendered skills/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 16ms (Views: 12.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3/skills" for 127.0.0.1 at 2014-01-17 18:45:23 +0700
+Processing by SkillsController#index as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'b08a58df5bf485320307794be4180dc1897b4b4e' LIMIT 1[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from index at /home/framgia-user/Desktop/testAss/app/controllers/skills_controller.rb:6)
+  [1m[36mUserSkill Load (0.1ms)[0m  [1mSELECT `user_skills`.* FROM `user_skills` WHERE `user_skills`.`user_id` = 3[0m
+  [1m[35mSkill Load (0.3ms)[0m  SELECT `skills`.* FROM `skills` WHERE `skills`.`id` = 1 ORDER BY `skills`.`id` ASC LIMIT 1
+  [1m[36mDetailSkill Load (0.1ms)[0m  [1mSELECT `detail_skills`.* FROM `detail_skills` WHERE `detail_skills`.`skill_id` = 1[0m
+  [1m[35mSkill Load (0.1ms)[0m  SELECT `skills`.* FROM `skills` WHERE `skills`.`id` = 0 ORDER BY `skills`.`id` ASC LIMIT 1
+  Rendered skills/index.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (undefined method `detail_skills' for nil:NilClass):
+     6:    
+     7:         <%= user_skill.id %>
+     8:         <%= user_skill.skill.name if  user_skill.skill.present? %>
+     9:          <% user_skill.skill.detail_skills.each do |detail_skill|%>
+    10:           <%=detail_skill.name %>
+    11:           <br/>
+    12:                 <% end %>
+  app/views/skills/index.html.erb:9:in `block in _app_views_skills_index_html_erb___3280204566763861473_70021561582740'
+  app/views/skills/index.html.erb:5:in `each'
+  app/views/skills/index.html.erb:5:in `_app_views_skills_index_html_erb___3280204566763861473_70021561582740'
+
+
+  Rendered /home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+  Rendered /home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.6ms)
+
+
+Started GET "/users/3/skills" for 127.0.0.1 at 2014-01-17 18:45:23 +0700
+Processing by SkillsController#index as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'b08a58df5bf485320307794be4180dc1897b4b4e' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from index at /home/framgia-user/Desktop/testAss/app/controllers/skills_controller.rb:6)
+  [1m[36mUserSkill Load (0.2ms)[0m  [1mSELECT `user_skills`.* FROM `user_skills` WHERE `user_skills`.`user_id` = 3[0m
+  [1m[35mSkill Load (0.3ms)[0m  SELECT `skills`.* FROM `skills` WHERE `skills`.`id` = 1 ORDER BY `skills`.`id` ASC LIMIT 1
+  [1m[36mDetailSkill Load (0.1ms)[0m  [1mSELECT `detail_skills`.* FROM `detail_skills` WHERE `detail_skills`.`skill_id` = 1[0m
+  [1m[35mSkill Load (0.1ms)[0m  SELECT `skills`.* FROM `skills` WHERE `skills`.`id` = 0 ORDER BY `skills`.`id` ASC LIMIT 1
+  Rendered skills/index.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (undefined method `detail_skills' for nil:NilClass):
+     6:    
+     7:         <%= user_skill.id %>
+     8:         <%= user_skill.skill.name if  user_skill.skill.present? %>
+     9:          <% user_skill.skill.detail_skills.each do |detail_skill|%>
+    10:           <%=detail_skill.name %>
+    11:           <br/>
+    12:                 <% end %>
+  app/views/skills/index.html.erb:9:in `block in _app_views_skills_index_html_erb___3280204566763861473_70021562386120'
+  app/views/skills/index.html.erb:5:in `each'
+  app/views/skills/index.html.erb:5:in `_app_views_skills_index_html_erb___3280204566763861473_70021562386120'
+
+
+  Rendered /home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (35.3ms)
+  Rendered /home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/framgia-user/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (44.3ms)
+  [1m[36m (129.5ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (233.6ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSkills (20131216102135)
+  [1m[35m (189.0ms)[0m  CREATE TABLE `skills` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(512) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (221.5ms)[0m  [1mCREATE UNIQUE INDEX `index_skills_on_id` ON `skills` (`id`) [0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131216102135')[0m
+  [1m[35m (64.6ms)[0m  COMMIT
+Migrating to CreateUserSkills (20131216102204)
+  [1m[36m (262.2ms)[0m  [1mCREATE TABLE `user_skills` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) NOT NULL, `skill_id` int(11) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (233.0ms)[0m  CREATE UNIQUE INDEX `index_user_skills_on_id` ON `user_skills` (`id`) 
+  [1m[36m (221.8ms)[0m  [1mCREATE INDEX `index_user_skills_on_skill_id_and_created_at` ON `user_skills` (`skill_id`) [0m
+  [1m[35m (233.0ms)[0m  CREATE INDEX `index_user_skills_on_user_id_and_created_at` ON `user_skills` (`user_id`) 
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131216102204')
+  [1m[36m (132.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20140117021023)
+  [1m[35m (341.0ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(512) NOT NULL, `email` varchar(255) NOT NULL, `password_digest` varchar(256) NOT NULL, `remember_token` varchar(256), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (462.2ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_id` ON `users` (`id`) [0m
+  [1m[35m (353.9ms)[0m  CREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`) 
+  [1m[36m (342.3ms)[0m  [1mCREATE INDEX `index_users_on_remember_token` ON `users` (`remember_token`) [0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140117021023')[0m
+  [1m[35m (112.0ms)[0m  COMMIT
+Migrating to CreateDetailSkills (20140117040941)
+  [1m[36m (287.5ms)[0m  [1mCREATE TABLE `detail_skills` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(512) NOT NULL, `skill_id` int(11) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (441.6ms)[0m  CREATE UNIQUE INDEX `index_detail_skills_on_id` ON `detail_skills` (`id`) 
+  [1m[36m (374.0ms)[0m  [1mCREATE INDEX `index_detail_skills_on_skill_id_and_created_at` ON `detail_skills` (`skill_id`) [0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140117040941')[0m
+  [1m[35m (105.8ms)[0m  COMMIT
+Migrating to CreateUserSkillDetails (20140117082453)
+  [1m[36m (241.1ms)[0m  [1mCREATE TABLE `user_skill_details` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `detail_skill_id` int(11) NOT NULL, `user_skill_id` int(11) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (243.6ms)[0m  CREATE UNIQUE INDEX `index_user_skill_details_on_id` ON `user_skill_details` (`id`) 
+  [1m[36m (243.9ms)[0m  [1mCREATE INDEX `index_user_skill_details_on_detail_skill_id_and_created_at` ON `user_skill_details` (`detail_skill_id`) [0m
+  [1m[35m (232.8ms)[0m  CREATE INDEX `index_user_skill_details_on_user_skill_id_and_created_at` ON `user_skill_details` (`user_skill_id`) 
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140117082453')
+  [1m[36m (41.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `skills` (`created_at`, `name`, `updated_at`) VALUES ('2014-01-17 11:49:41', 'Ruby', '2014-01-17 11:49:41')[0m
+  [1m[35m (62.8ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `skills` (`created_at`, `name`, `updated_at`) VALUES ('2014-01-17 11:49:41', 'PHP', '2014-01-17 11:49:41')
+  [1m[36m (51.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `skills` (`created_at`, `name`, `updated_at`) VALUES ('2014-01-17 11:49:42', 'Java', '2014-01-17 11:49:42')[0m
+  [1m[35m (62.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = 'admin@framgia.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `users` (`created_at`, `email`, `name`, `password_digest`, `remember_token`, `updated_at`) VALUES ('2014-01-17 11:49:42', 'admin@framgia.com', 'Admin', '$2a$10$SRIMHP2AflfjGpodvvkAF.5UrfU7ZYn1EfuJqF3.wc0gGV0ZKjEGm', 'b160d4d89067ef9a431cdf67ff6e1e54ce281877', '2014-01-17 11:49:42')[0m
+  [1m[35m (46.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = 'a@framgia.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`created_at`, `email`, `name`, `password_digest`, `remember_token`, `updated_at`) VALUES ('2014-01-17 11:49:42', 'a@framgia.com', 'Hung', '$2a$10$cAwaIHkQbN9Hu6ZUTU8NKe0rMXeczahaKngXLTtYvpO49E3FeuV4m', '52526b65b83b1d8a3b53fb23cbfbe812f9bfabb5', '2014-01-17 11:49:42')[0m
+  [1m[35m (51.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `user_skills` (`created_at`, `skill_id`, `updated_at`, `user_id`) VALUES ('2014-01-17 11:49:42', 1, '2014-01-17 11:49:42', 1)
+  [1m[36m (83.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `detail_skills` (`created_at`, `name`, `skill_id`, `updated_at`) VALUES ('2014-01-17 11:49:42', 'Git', 1, '2014-01-17 11:49:42')[0m
+  [1m[35m (44.2ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `detail_skills` (`created_at`, `name`, `skill_id`, `updated_at`) VALUES ('2014-01-17 11:49:42', 'RoR', 1, '2014-01-17 11:49:42')
+  [1m[36m (53.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `detail_skills` (`created_at`, `name`, `skill_id`, `updated_at`) VALUES ('2014-01-17 11:49:42', 'CakePHP', 2, '2014-01-17 11:49:42')[0m
+  [1m[35m (41.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `detail_skills` (`created_at`, `name`, `skill_id`, `updated_at`) VALUES ('2014-01-17 11:49:42', 'Zend', 2, '2014-01-17 11:49:42')
+  [1m[36m (40.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `detail_skills` (`created_at`, `name`, `skill_id`, `updated_at`) VALUES ('2014-01-17 11:49:42', 'SpringFramework', 3, '2014-01-17 11:49:42')[0m
+  [1m[35m (39.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `detail_skills` (`created_at`, `name`, `skill_id`, `updated_at`) VALUES ('2014-01-17 11:49:42', 'Structs1', 3, '2014-01-17 11:49:42')
+  [1m[36m (40.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `user_skill_details` (`created_at`, `detail_skill_id`, `updated_at`, `user_skill_id`) VALUES ('2014-01-17 11:49:42', 1, '2014-01-17 11:49:42', 1)[0m
+  [1m[35m (42.1ms)[0m  COMMIT
