@@ -1,28 +1,18 @@
 
 <h2>skill <%=@user.name%></h2>
-<table >
-<thear>
-   <tr>
-    <th>STT</th>
-    <th>Skill name</th>
-    <th>Skill details</th>
-  </tr>
-  <tbody>
+
 
   <%    @user_skills.each do |user_skill|%>
-   <tr>
-        <td><%= user_skill.id %></td>
-        <td><%= user_skill.skill.name%>
-        <td>
-                <% user_skill.skill.detail_skills.each do |detail_skill|%>
-                
-                <%=detail_skill.name %>
+   
+        <%= user_skill.id %>
+       <% if user_skill.skill.name.nil ? %>
+        <%= user_skill.skill.name %>
+         <% user_skill.skill.detail_skills.each do |detail_skill|%>
+          <%=detail_skill.name %>
+          <br/>
             
                  <% end %>
-     </td>
-   </tr>
+
                 <% end %>
+           <% end %>
       
-        </tbody>
-      
-</table>
