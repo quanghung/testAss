@@ -45,3 +45,4 @@ gem "bootstrap-sass", "2.3.2.0"
 gem "font-awesome-sass"
 
 gem 'roo'
+gem 'pg', '0.15.1'
