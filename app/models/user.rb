@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   has_secure_password
  has_many :user_skills
   has_many :user_skill_details
-  accepts_nested_attributes_for :user_skills
-  before_save { self.email = email.downcase }
+  accepts_nested_attributes_for :user_skills,
+    reject_if: ->attrs { attrs['skill_id'].blank? } 
   before_create :create_remember_token
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
-
+  
 
   
     def User.new_remember_token
