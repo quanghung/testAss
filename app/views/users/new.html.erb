@@ -19,7 +19,6 @@
 
       <ul style="list-style :none" id="group_skills">
         <%= f.fields_for :user_skills do |builder| %>
-        
             <li>
               <%= builder.check_box :skill_id, {checked: false},
                 builder.object.skill.id, nil %>

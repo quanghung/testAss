@@ -46,13 +46,7 @@ end
 
 user_skills_list = [
   {user_id: 1, skill_id: 1},
-  {user_id: 1, skill_id: 2},
-  {user_id: 2, skill_id: 1},
-  {user_id: 2, skill_id: 2},
-  {user_id: 3, skill_id: 1},
-  {user_id: 3, skill_id: 3},
-  {user_id: 4, skill_id: 1},
-  {user_id: 4, skill_id: 3}
+
 ]
 
 user_skills_list.each do |user_skill|
@@ -61,13 +55,7 @@ end
 
 user_skill_details_list = [
   {user_skill_id: 1, skill_detail_id: 1},
-  {user_skill_id: 1, skill_detail_id: 2},
-  {user_skill_id: 2, skill_detail_id: 1},
-  {user_skill_id: 2, skill_detail_id: 2},
-  {user_skill_id: 3, skill_detail_id: 1},
-  {user_skill_id: 3, skill_detail_id: 3},
-  {user_skill_id: 4, skill_detail_id: 1},
-  {user_skill_id: 4, skill_detail_id: 3}
+
 ]
 
 user_skill_details_list.each do |user_skill|

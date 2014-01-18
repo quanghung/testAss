@@ -1,9 +1,8 @@
 <h1>Skills</h1>
-<table border="1" >
+<table border ="1" >
   <% @user_skills.each do |user_skill| %>
     <tr>
-      <% @aa =user_skill.user_skill_details.count %>
-        <th colspan = aa >
+        <th>
           <%= user_skill.skill.name if user_skill.skill.present? %>
         </th>
     </tr>
@@ -15,4 +14,4 @@
   <% end %>
 </table>
 <br/>
-<%= link_to ("Back"), users_path,class: "btn btn-medium btn-primary" %>
+<%= link_to "Back", users_path,class: "btn btn-medium btn-primary" %>
