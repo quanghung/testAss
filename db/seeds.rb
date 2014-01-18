@@ -33,33 +33,43 @@ users_list.each do |user|
   User.create! user
 end
 
+skill_details_list = [
+  {name: "Struct", skill_id: 3},
+  {name: "JSP",  skill_id: 3},
+  {name: "JavaScipt", skill_id: 2},
+  {name: "Rails",  skill_id: 1},
+]
+
+skill_details_list.each do |skill|
+  SkillDetail.create! skill
+end
+
 user_skills_list = [
   {user_id: 1, skill_id: 1},
-
+  {user_id: 1, skill_id: 2},
+  {user_id: 2, skill_id: 1},
+  {user_id: 2, skill_id: 2},
+  {user_id: 3, skill_id: 1},
+  {user_id: 3, skill_id: 3},
+  {user_id: 4, skill_id: 1},
+  {user_id: 4, skill_id: 3}
 ]
 
 user_skills_list.each do |user_skill|
   UserSkill.create! user_skill
 end
 
-detail_skills_list = [
-  {name: "Git", skill_id: 1},
-  {name: "RoR", skill_id: 1},
-  {name: "CakePHP", skill_id: 2},
-  {name: "Zend", skill_id: 2},
-  {name: "SpringFramework", skill_id: 3},
-  {name: "Structs1", skill_id: 3},
-]
-
-detail_skills_list.each do |detail_skill|
-  DetailSkill.create! detail_skill
-end
-
 user_skill_details_list = [
-  {user_skill_id: 1,detail_skill_id:1},
-
+  {user_skill_id: 1, skill_detail_id: 1},
+  {user_skill_id: 1, skill_detail_id: 2},
+  {user_skill_id: 2, skill_detail_id: 1},
+  {user_skill_id: 2, skill_detail_id: 2},
+  {user_skill_id: 3, skill_detail_id: 1},
+  {user_skill_id: 3, skill_detail_id: 3},
+  {user_skill_id: 4, skill_detail_id: 1},
+  {user_skill_id: 4, skill_detail_id: 3}
 ]
 
-user_skill_details_list.each do |user_skill_detail|
-  UserSkillDetail.create! user_skill_detail
+user_skill_details_list.each do |user_skill|
+  UserSkillDetail.create! user_skill
 end

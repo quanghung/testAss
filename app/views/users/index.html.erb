@@ -1,16 +1,20 @@
-<title>All Use</title>
-<h1>All users</h1>
-<h3>
-  <%= link_to "New user", new_user_path,
+<h1>All Users</h1>
+<div>
+<%= link_to "Add user", new_user_path,
     class: "btn btn-medium btn-primary" %>
-</h3>
+</div>
+<br/>
 <ul class="users">
   <% @users.each do |user| %>
-    <li>
-      <%= gravatar_for user, size: 52 %>
-      <%= link_to user.name ,user_path(user.id) %>
-       <td><%= link_to "Skills", user_skills_path(user),
-                                      class: "btn btn-small btn-primary" %></td>
-    </li>
+  <li>
+    <%= gravatar_for user %>
+    <div class="user-info">
+      <span>
+        <h3><%= user.name %></h3>
+        <%= link_to "Skill", user_skills_path(user.id), class: "btn btn-small btn-primary" %>
+      </span>
+    </div>
+  </li>
   <% end %>
 </ul>
+<%= will_paginate %>

@@ -13,15 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20140117082453) do
 
-  create_table "detail_skills", force: true do |t|
-    t.string   "name",       limit: 512, null: false
-    t.integer  "skill_id",               null: false
+  create_table "skill_details", force: true do |t|
+    t.integer  "skill_id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "detail_skills", ["id"], name: "index_detail_skills_on_id", unique: true, using: :btree
-  add_index "detail_skills", ["skill_id"], name: "index_detail_skills_on_skill_id_and_created_at", using: :btree
+  add_index "skill_details", ["id"], name: "index_skill_details_on_id", unique: true, using: :btree
+  add_index "skill_details", ["skill_id"], name: "index_skill_details_on_skill_id_and_created_at", using: :btree
 
   create_table "skills", force: true do |t|
     t.string   "name",       limit: 512, null: false
@@ -32,14 +32,14 @@ ActiveRecord::Schema.define(version: 20140117082453) do
   add_index "skills", ["id"], name: "index_skills_on_id", unique: true, using: :btree
 
   create_table "user_skill_details", force: true do |t|
-    t.integer  "detail_skill_id", null: false
-    t.integer  "user_skill_id",   null: false
+    t.integer  "user_skill_id"
+    t.integer  "skill_detail_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "user_skill_details", ["detail_skill_id"], name: "index_user_skill_details_on_detail_skill_id_and_created_at", using: :btree
   add_index "user_skill_details", ["id"], name: "index_user_skill_details_on_id", unique: true, using: :btree
+  add_index "user_skill_details", ["skill_detail_id"], name: "index_user_skill_details_on_skill_detail_id_and_created_at", using: :btree
   add_index "user_skill_details", ["user_skill_id"], name: "index_user_skill_details_on_user_skill_id_and_created_at", using: :btree
 
   create_table "user_skills", force: true do |t|

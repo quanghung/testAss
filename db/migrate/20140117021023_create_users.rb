@@ -1,11 +1,11 @@
 class CreateUsers < ActiveRecord::Migration
   def change
-    create_table :users do |t|
+    create_table "users", force: true do |t|
       t.string   "name",            limit: 512,                null: false
-      t.string   "email",                                      null: false
-      t.string   "password_digest", limit: 256,                null: false
-      t.string   "remember_token",  limit: 256
-      t.timestamps 
+      t.string "email", null: false
+      t.string "password_digest", limit: 256, null: false
+      t.string "remember_token", limit: 256
+      t.timestamps
     end
   
     add_index "users", ["id"], unique: true

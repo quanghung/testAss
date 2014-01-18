@@ -1,23 +1,18 @@
-
-
-      
-<h1>All Skills</h1>
-<ul class="user">
+<h1>Skills</h1>
+<table border="1" >
   <% @user_skills.each do |user_skill| %>
-  <li>
-    <div class="user-info">
-      <h3>
-        <%= user_skill.skill.name if user_skill.skill.present? %>
-      </h3>
-    </div>
-  </li>
-  <li style="list-style: none">
-    <ul>
-      <% user_skill.user_skill_details.each do |detail| %>
-        <li><%= detail.detail_skill.name if detail.detail_skill.present? %></li>
+    <tr>
+      <% @aa =user_skill.user_skill_details.count %>
+        <th colspan = aa >
+          <%= user_skill.skill.name if user_skill.skill.present? %>
+        </th>
+    </tr>
+  <tr>
+      <% user_skill.user_skill_details.each do |f| %>
+        <td><%= f.skill_detail.name if f.skill_detail.present? %></td>
       <% end %>
-    </ul>
-  </li>
+    </tr>
   <% end %>
-</ul><br/>
+</table>
+<br/>
 <%= link_to ("Back"), users_path,class: "btn btn-medium btn-primary" %>

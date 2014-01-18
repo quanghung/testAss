@@ -1,0 +1,21 @@
+<h1 class="offset1 pull-left">Add User</h1>
+
+<div class="row">
+    <div class="span6 offset1">
+      <%= form_for @user do |f| %>
+        <%= f.fields_for :user_skills do |builder| %>
+          <li>
+              <%= builder.check_box :skill_id, {checked: false},
+                  builder.object.skill.id, nil %>
+              <%= builder.object.skill.name %>
+              <ul style="list-style: none" id="skill_details_<%=builder.object.skill.id%>">
+                <%= builder.fields_for :user_skill_details do |builder1|%>
+                  <%=render "skill_detail",
+                      build: builder1 %>
+                <% end%>
+              </ul>
+          </li>
+        <% end %>
+      <% end %>
+    </div>
+</div>

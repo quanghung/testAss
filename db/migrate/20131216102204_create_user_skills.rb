@@ -1,9 +1,9 @@
 class CreateUserSkills < ActiveRecord::Migration
   def change
     create_table "user_skills", force: true do |t|
-      t.integer  "user_id",                                  null: false
-      t.integer  "skill_id",                                 null: false
-      t.timestamps 
+      t.integer "user_id", null: false
+      t.integer "skill_id", null: false
+      t.timestamps
     end
   
     add_index "user_skills", ["id"], unique: true
